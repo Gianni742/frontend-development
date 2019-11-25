@@ -1,0 +1,51 @@
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Calibri;
+}
+
+#colorList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.colorBlocks{
+    width:200px;
+    height:200px;
+    display:none;
+    text-align: center;
+
+}
+
+
+.colorBlocks p{
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+
+.heading{
+    padding:20px;
+    text-align: center;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+
+button{
+    margin: 0 auto;
+    padding:10px;
+
+}
+
+
+#retryButton{
+    display: none;
+    margin-top: 20px;
+}
