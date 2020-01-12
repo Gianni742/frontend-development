@@ -10,20 +10,33 @@
     <script>
         $(document).ready(function(){
 
-            var clrArray = ["blue", "green", "red", "magenta", "yellow", "cyan", "lime", "orange", "purple"];
+           var clrArray = ["blue", "green"];
+            // var clrArray2 = ["blue", "green", "red", "magenta", "yellow", "cyan", "lime", "orange", "purple"];
 
             // add css to button:
             // Gets the number of elements with class yourClass
-            var numItems = $('.colorBlocks').length
+            var numItems = $('.colorBlocks').length;
+            var comparisonArray = [];
 
-            for (var i = 0; i <= numItems+1; i++) {
+            for (var i = 0; i <= numItems; i++) {
                 var randomValue = clrArray[Math.floor(Math.random()*clrArray.length)];
 
                 if(i === 0){}
                 else{
-                    $("#block" + i).css("background-color", randomValue)
+                    $("#block" + i).css("background-color", randomValue);
                     $("#block" + i).append("Your color is " + randomValue);
+                    comparisonArray.push(randomValue);
                 }
+            }
+
+            for(var j = 0; j <= comparisonArray.length; j++){
+                console.log(j);
+                console.log( comparisonArray.length);
+                if((comparisonArray[j] == comparisonArray[2]) && (j == comparisonArray.length)){
+                    $("#win-message").show();
+                }
+
+
             }
 
             // when submitButton is clicked:
@@ -42,6 +55,9 @@
             $("#retryButton").click(function(){
                 location.reload();
             });
+
+
+
 
         });
 
@@ -72,7 +88,7 @@
 
 
 
-<div class="object"></div>
+<h1 id="win-message">You win! 🤑 </h1>
 
 
 

@@ -1,0 +1,412 @@
+
+// scss example:
+
+$font-family:  'Poppins', sans-serif;
+$font-size: 12px;
+$primary-color: #f0f3f2;
+$secondary-color: rgba(214, 50, 46, 0.85); // adds opacity to color
+$optional-color: rgba(13, 11, 19, 0.85); // adds opacity to color
+$header-height: 10rem;
+
+html, input::placeholder, input[type="text"]{
+  font-size: $font-size;
+  font-family: $font-family;
+}
+
+body {
+  margin: 0 auto;
+
+  // shorthand notation:
+  font: 100% $font-family;
+  color: $primary-color;
+  //  (//unsplash.it/1000/1000)
+  background-image: url('../assets/images/3.jpg');  // https://unsplash.com/explore/collections
+  background-color: #333;
+  background-blend-mode: multiply; // change blend mode for bg overlay
+  background-size: cover;
+  display: grid;
+  place-items:center;
+
+}
+
+.row{
+  display: grid;
+
+  &--1x1{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &--1x2{
+    grid-gap: 3em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+header{
+  margin: 0 auto;
+  background: ($secondary-color);
+  text-align:center;
+  height:$header-height;
+  //position: fixed; // keeps constant position
+  //z-index: 999; // keeps the menu on top
+  width:100%;
+}
+
+.logo{
+  position: absolute; // gains position properties from its parent attribute.
+  text-align: left;
+  top:100%;
+  left:0;
+}
+
+// Nest all nav properties:
+nav {
+
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  ul {
+
+    margin: 0;
+    padding: 0;
+    list-style: none; // delete bullet points from list items
+  }
+
+  li {
+    // top / right / bottom / left
+    margin: 0 0 2em 1em;
+    display:inline-block;
+  }
+
+  li:last-child{
+    padding-right:5em;
+  }
+
+  a.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; // rem = relative to base font-size
+    text-transform: uppercase; // transform effect;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 2px 0; // only apply padding to top
+  }
+
+  a:hover{
+    color: #419cfb;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+  }
+
+}
+
+// inserts content before & after each element:
+.nav-link::before,
+.nav-link::after{
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: chocolate;
+  position: absolute;
+  left: 0;
+  transform: scaleX(0); // sets content width to 0 keyframe #1
+  transition: transform 1s; // change transition speed:
+
+}
+
+// Define top (line) behavior
+.nav-link::after{
+  bottom: 0; // s
+  transform-origin: right; // makes bottom line transform from right to left
+}
+
+// Define bottom (line) behavior
+.nav-link::before{
+  top: 0; // make the ::before content appear under  of the list item
+  transform-origin: left; // makes top line transform from left to right
+}
+
+// Define nav link content behavior on hover:
+.nav-link:hover::before,
+.nav-link:hover::after{
+  transform: scaleX(1); // Transform to original width.
+}
+
+
+.hamburger-menu{
+  display:none;
+}
+
+.glyphicon-menu-hamburger {
+font-size:3em;
+font-weight: 300;
+}
+
+.header-title{
+  position: relative;
+  top:2.2rem;
+ font-weight: normal;
+  letter-spacing: 1px;
+}
+
+
+
+
+
+// @info start portfolio section:
+
+.portfolio{
+  margin-left:1.5rem;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3em;
+  padding:3em;
+
+}
+
+
+// @info start aboutMe section:
+
+.section{
+  text-align: center;
+  margin: 0 auto;
+  // top / right / bottom / left
+  padding:0em 2em 0 2em;
+
+}
+
+// Use & Selectors to nest BEM styles in page:
+
+
+
+.section-header{
+  padding-top:1em;
+  width:500px;
+
+  &__desc{
+   font-size: calc(1em * 1.2);
+   padding-top:0.5em;
+   height: auto;
+  }
+
+  &__title{
+    position: relative;
+  }
+
+  &__image{
+    margin-top:2em;
+    width:25%;
+    border-radius: 50%;
+    border: 2px solid #333333;
+    box-shadow: 0 0 10px #333333; // add some shading
+
+  }
+
+  &__title::before{
+    left:0 !important;
+  }
+  &__title::after{
+    right:0 !important;
+  }
+
+  &__expander{
+    width:2em;
+    filter: invert(100%); // invert color of svg element (no illustrator needed)
+  }
+
+  &__expander:hover{
+    filter: invert(50%); // invert color of svg element (no illustrator needed)
+  }
+
+}
+
+.section-body{
+
+  font-size: calc(1em * 1.1);
+  opacity: 0.1;
+  padding-top:1em;
+
+  &__partition{
+    margin: 0 auto;
+    width:200px;
+  }
+
+}
+
+// Style underline for Caption blocks:
+.section-header__title::before, .section-header__title::after {
+  position: absolute;
+  bottom:-1rem;
+  width:40em;
+  content:'';
+  height:3px;
+  background: #f0f3f2;
+}
+
+
+.pf-item__thumb {
+  width:340px;
+  height:240px;
+  transition: all 1s ease-in-out;
+  border: 3px solid black;
+}
+
+.pf-item__thumb:hover{
+  zoom: 1;
+  filter: alpha(opacity=50);
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+
+
+
+.portfolio-lightboxes{
+  display:none;
+}
+
+img {
+
+  max-width:100%;
+}
+
+
+.hide{
+  display: none;
+}
+
+.flip-vertical{
+  transform: rotate(180deg); /* Equal to rotateZ(45deg) */
+}
+
+.switchDisplay{
+  display: grid;
+}
+
+input, label{
+margin: 0;
+  padding: 0;
+}
+
+
+input {
+
+  width:100%;
+  height:2.5em;
+  transition: box-shadow 0.8s, border 0.8s;
+}
+
+
+
+textarea {
+  margin-top:1em;
+  width: auto;
+  height:10em;
+  resize:none;
+}
+
+.contact-form{
+  text-align: center;
+  width:700px;
+  display: grid;
+  // top / right / bottom / left
+  padding: 0em 0 5em 0;
+}
+
+.center{
+  text-align: center;
+}
+
+.btn{
+  border:none;
+  width:20%;
+  height:3em;
+  margin: 2em 0em 2em 0em;
+  transition: 0.3s;
+
+&:hover{
+  background-color: #3e8e41;
+  color: white;
+}
+}
+
+
+.error{
+  display: inline-grid;
+  width:40%;
+  height:2em;
+  background-color: $secondary-color;
+  margin:1em;
+  padding:0.5em;
+
+  &__msg{
+    margin: auto;
+    text-align: center;
+
+  }
+}
+
+
+
+footer{
+  display: flex;
+  height:5em;
+  width:100%;
+  background-color: $secondary-color;
+  opacity: 0.7;
+  align-items: center;
+
+
+  &.footer-content{
+
+  }
+  & p{
+    opacity: 1.0;
+  }
+}
+
+
+
+
+//Lets add some media queries:
+
+@media screen and (max-width:768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .portfolio {
+    margin-left: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3em;
+    padding: 3em;
+  }
+
+  .pf-item__thumb {
+    width:240px;
+    height:210px;
+  }
+
+}
+
+  @media screen and (max-width:486px) {
+
+    .portfolio {
+      margin-left: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 3em;
+      padding: 3em;
+    }
+
+    .pf-item__thumb {
+      width:200px;
+      height:180px;
+    }
+
+  }
+
+

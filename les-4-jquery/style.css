@@ -49,3 +49,13 @@ button{
     display: none;
     margin-top: 20px;
 }
+
+
+#win-message{
+    display: none;
+    padding:20px;
+    flex-basis: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
