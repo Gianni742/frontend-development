@@ -8,6 +8,18 @@ $secondary-color: rgba(214, 50, 46, 0.85); // adds opacity to color
 $optional-color: rgba(13, 11, 19, 0.85); // adds opacity to color
 $header-height: 10rem;
 
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+
 html, input::placeholder, input[type="text"]{
   font-size: $font-size;
   font-family: $font-family;
@@ -60,7 +72,7 @@ header{
 }
 
 // Nest all nav properties:
-nav {
+.nav-container {
 
   display: flex;
   justify-content: flex-end;
@@ -69,7 +81,7 @@ nav {
   ul {
 
     margin: 0;
-    padding: 0;
+    padding-top: 0.5em;
     list-style: none; // delete bullet points from list items
   }
 
@@ -137,10 +149,16 @@ nav {
 
 
 .hamburger-menu{
+  transform: scale(1.5, 1.2);
+  margin-right:8em;
+  padding: 0.8em 2.5em 0em 0em;
   display:none;
+  justify-content: flex-end;
 }
 
+
 .glyphicon-menu-hamburger {
+
 font-size:3em;
 font-weight: 300;
 }
@@ -194,6 +212,13 @@ font-weight: 300;
 
   &__title{
     position: relative;
+
+      &::before{
+        left:0 !important;
+      }
+      &::after{
+        right:0 !important;
+      }
   }
 
   &__image{
@@ -202,15 +227,8 @@ font-weight: 300;
     border-radius: 50%;
     border: 2px solid #333333;
     box-shadow: 0 0 10px #333333; // add some shading
-
   }
 
-  &__title::before{
-    left:0 !important;
-  }
-  &__title::after{
-    right:0 !important;
-  }
 
   &__expander{
     width:2em;
@@ -369,13 +387,80 @@ footer{
 
 
 
+.rotateRight{
+  color: #3e212d;
+  font-size: 3em;
+  transition: 0.9s ease-out;
+  transform: rotate(180deg);
+}
+
+.rotateLeft{
+  color:#f0f3f2;
+  font-size: 2.5em;
+  transition: 0.9s ease-out;
+  transform: rotate(-180deg);
+}
 
 //Lets add some media queries:
+
+@media screen and (max-width:1068px) {
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .header-title{
+      margin-top:0em;
+  }
+
+  .nav-container {
+    justify-content: center;
+      ul{
+     padding:2em 0em 0em 3em;
+      }
+  }
+
+  .nav-link{
+    font-size: calc(1em * 1.5) !important;
+  }
+}
 
 @media screen and (max-width:768px) {
   .hamburger-menu {
     display: flex;
   }
+
+  .nav-container{
+    display:none;
+    justify-content: flex-end;
+
+    ul{
+      margin-top:1.8em;
+      background-color: #3e212d;
+      // top / right / bottom / left
+      padding:1.5em 0em 3em 3em;
+      z-index:10;
+      border-bottom-left-radius: 65%;
+    }
+
+
+    @for $i from 1 through 5 {
+      li:nth-child(#{$i}) {
+        margin-left:(0.6em * $i);
+        transform: scale((pow(0.95, $i)));
+      }
+    }
+
+      li{
+        margin: 1em 1em 1em 0em;
+        display: flex;
+              &:hover{
+                transition: 0.7s ease;
+                transform: scale(1);
+              }
+      }
+  }
+
 
   .portfolio {
     margin-left: 1.5rem;
@@ -390,11 +475,17 @@ footer{
     height:210px;
   }
 
+  .contact-form {
+    width:500px;
+
+  }
+
 }
 
   @media screen and (max-width:486px) {
 
     .portfolio {
+      text-align: center;
       margin-left: 1.5rem;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -405,6 +496,11 @@ footer{
     .pf-item__thumb {
       width:200px;
       height:180px;
+    }
+
+    .contact-form {
+      text-align: center;
+      width: 300px;
     }
 
   }

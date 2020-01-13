@@ -52,7 +52,7 @@ button{
 
 
 #win-message{
-    display: none;
+    display:none;
     padding:20px;
     flex-basis: 100%;
     align-items: center;

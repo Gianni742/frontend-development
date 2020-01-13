@@ -4,7 +4,6 @@
 const { series, parallel } = require('gulp');
 const gulp = require("gulp");
 const sass = require("gulp-sass");
-const connectPHP = require('gulp-connect-php');
 const browserSync = require("browser-sync").create();
 
 // notice how function() is used as callback:
@@ -43,32 +42,4 @@ function syncFiles(){
 // to call this use "gulp sass"
 exports.sass = updateStyle;
 exports.syncFiles = syncFiles;
-
-
-
-
-
-
-// @info Doesnt work...
-
-// gulp.task('php', function() {
-//     connectPHP.server({
-//         baseDir: "./",
-//         port: 8010,
-//         keepalive:true
-//     });
-// });
-
-// @info try this later
-
-// gulp.task('browser-sync',gulp.series('php'), function() {
-//     browserSync.init({
-//         proxy: '',
-//         open: true,
-//         notify: false
-//     });
-// });
-
-
-
 

@@ -4,7 +4,6 @@
 *  $$ = document.querySelectorAll
  */
 
-
 var windowCenter =  $(window).width() / 2;
 
 // Shorthand for $( document ).ready()
@@ -16,6 +15,22 @@ $(function() {
     $("img").mousedown(function(e){
         e.preventDefault()
     });
+
+    const hamburgerIcon = document.querySelector('#hb_menu');
+    const navMenu = document.querySelector('.nav-container');
+
+    $(hamburgerIcon).click(function() {
+        $(this).toggleClass(function(){
+            return $(this).is('.rotateRight') ? 'rotateLeft' : 'rotateRight';
+        })
+
+        $(navMenu).slideToggle('medium', function() {
+            if ($(this).is(':visible'))
+                $(this).css('display','flex');
+        });
+    });
+
+
 
 
     var navItems = document.getElementsByClassName("nav-link");
@@ -36,8 +51,6 @@ $(function() {
         console.log(clickedItem);
         scrollToSection(clickedItem);
     });
-
-
 
     var header_expand_toggler = document.querySelector('.section-header__expander');
     $('.section-body').addClass("hide");
@@ -63,17 +76,3 @@ $(function() {
     });
 });
 
-
-
-const hamburgerIcon = document.querySelector('.hamburger-menu');
-const navBarMenu = document.querySelector('.navbar');
-
-
-// hamburgerIcon.addEventListener('click', () => {
-//     navBarMenu.classList.toggle('change');
-// });
-//
-//
-// $(hamburgerIcon).click(function() {
-//     alert( "Handler for .click() called." );
-// });
