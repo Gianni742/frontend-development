@@ -158,9 +158,7 @@ header{
 
 
 .glyphicon-menu-hamburger {
-
 font-size:3em;
-font-weight: 300;
 }
 
 .header-title{
@@ -191,8 +189,6 @@ font-weight: 300;
 .section{
   text-align: center;
   margin: 0 auto;
-  // top / right / bottom / left
-  padding:0em 2em 0 2em;
 
 }
 
@@ -203,6 +199,7 @@ font-weight: 300;
 .section-header{
   padding-top:1em;
   width:500px;
+  margin: 0 auto;
 
   &__desc{
    font-size: calc(1em * 1.2);
@@ -428,6 +425,7 @@ footer{
 @media screen and (max-width:768px) {
   .hamburger-menu {
     display: flex;
+    margin-left:12em;
   }
 
   .nav-container{
@@ -471,26 +469,68 @@ footer{
   }
 
   .pf-item__thumb {
-    width:240px;
+    width:300px;
     height:210px;
   }
 
   .contact-form {
     width:500px;
-
   }
 
 }
 
+@media screen and (max-width:686px) {
+
+
+  .section-header{
+    width:370px;
+
+  }
+
+  .section-body{
+
+    &__partition{
+      width:180px;
+      margin-right:1em;
+      margin-left:1em;
+    }
+  }
+
+
+
+  .hamburger-menu {
+    margin-left:2em;
+  }
+
+  .portfolio {
+    text-align: center;
+    margin-left: 0rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 2em;
+  }
+
+  .pf-item__thumb {
+    width:350px;
+    height:240px;
+  }
+
+
+}
+
   @media screen and (max-width:486px) {
+    .hamburger-menu {
+      margin-left:4em;
+    }
+
 
     .portfolio {
       text-align: center;
-      margin-left: 1.5rem;
+      margin-left: 0rem;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-gap: 3em;
-      padding: 3em;
+      grid-gap: 0em;
+      padding: 2em;
     }
 
     .pf-item__thumb {

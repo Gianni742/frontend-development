@@ -4,20 +4,19 @@
 *  $$ = document.querySelectorAll
  */
 
-var windowCenter =  $(window).width() / 2;
 
 // Shorthand for $( document ).ready()
 $(function() {
     console.log( "ready!" );
-    console.log(windowCenter);
 
     // disable image dragging:
     $("img").mousedown(function(e){
-        e.preventDefault()
+        e.preventDefault();
     });
 
     const hamburgerIcon = document.querySelector('#hb_menu');
     const navMenu = document.querySelector('.nav-container');
+    const navItems = document.getElementsByClassName("nav-link");
 
     $(hamburgerIcon).click(function() {
         $(this).toggleClass(function(){
@@ -29,12 +28,6 @@ $(function() {
                 $(this).css('display','flex');
         });
     });
-
-
-
-
-    var navItems = document.getElementsByClassName("nav-link");
-    console.log(navItems);
 
     function scrollToSection(id){
         // get the hash of the selected nav item and set the scrollposition to that item.
@@ -58,7 +51,7 @@ $(function() {
 
     $(header_expand_toggler).on('click',function() {
         // https://api.jquery.com/toggle/
-        $('.section-body').slideToggle(1200, false, function() {
+        $('.section-body').slideToggle(1000, false, function() {
                 if (isExpanded) {
                     $('.section-body').addClass("hide");
                     $(header_expand_toggler).removeClass("flip-vertical");

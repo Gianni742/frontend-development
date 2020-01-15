@@ -78,14 +78,18 @@
     <div class="section-body row--1x2 hide">
             <div class="section-body__partition">
                 <h3> # Header 3 # </h3>
+                <p>
                 On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions,
                 et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte
+                </p>
             </div>
 
         <div class="section-body__partition">
             <h3> # Header 3 # </h3>
+            <p>
             On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions,
             et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte
+            </p>
         </div>
     </div>
 
@@ -95,7 +99,7 @@
 <div class="section" id="my-work">
     <div class="section-header">
         <h2 class="section-header__title">My Work</h2>
-        <p class="section-header__desc"><i>"Lightbox gallery of some my listed work & projects."</i></p>
+        <p class="section-header__desc"><i>"Lightbox gallery that illustrates some of my listed work & projects."</i></p>
     </div>
 </div>
 
@@ -106,7 +110,7 @@
     <!-- Using BEM naming convention -->
     <div class="pf-item">
         <div class="pf-item__content">
-            <a href="assets/images/gallery/img10.png" data-lightbox="portfolio-">
+            <a href="assets/images/gallery/img10.png" data-title="Food blogging website that offers all kinds of recipes." data-lightbox="portfolio">
                 <img class="pf-item__thumb" src="https://unsplash.it/400?image=102" alt="">
             </a>
             <h3 class="pf-item__title">De volksmond</h3>
@@ -115,9 +119,10 @@
     </div>
 
     <div class="pf-item">
+        <!--Lightbox links go from down to up -->
         <div class="pf-item__content">
             <a href="assets/images/gallery/img4.png" data-lightbox="portfolio">
-                <img class="pf-item__thumb" src="https://unsplash.it/400?image=967" alt="">
+                <img class="pf-item__thumb" src="https://unsplash.it/400?image=225" alt="">
             </a>
             <h3 class="pf-item__title">Online task manager</h3>
             <p class="pf-item__desc">Task manage application made for managing projects online
@@ -128,8 +133,8 @@
 
     <div class="pf-item">
         <div class="pf-item__content">
-            <a href="assets/images/gallery/img2.png" data-lightbox="portfolio-gallery">
-                <img class="pf-item__thumb" src="https://unsplash.it/400?image=3" alt="">
+            <a href="assets/images/gallery/img2.png" data-lightbox="portfolio">
+                <img class="pf-item__thumb" src="https://unsplash.it/400?image=60" alt="">
             </a>
             <h3 class="pf-item__title">PHP Login screen</h3>
             <p class="pf-item__desc">Database application login screen made with html/php</p>
@@ -139,7 +144,7 @@
 
     <div class="pf-item">
         <div class="pf-item__content">
-            <a href="assets/images/gallery/img10.png" data-lightbox="portfolio-gallery">
+            <a href="assets/images/gallery/motion_graphics.JPG" data-title="Motion graphic animation made with Adobe After-Effects."  data-lightbox="portfolio">
                 <img class="pf-item__thumb" src="https://unsplash.it/400?image=1069" alt="">
             </a>
             <h3 class="pf-item__title">Motion Graphics</h3>
@@ -149,8 +154,8 @@
 
     <div class="pf-item">
         <div class="pf-item__content">
-            <a href="assets/images/gallery/todolist.png" data-lightbox="portfolio-gallery">
-                <img class="pf-item__thumb" src="https://unsplash.it/400?image=225" alt="">
+            <a href="assets/images/gallery/todolist.png" data-lightbox="portfolio">
+                <img class="pf-item__thumb" src="https://unsplash.it/400?image=635" alt="">
             </a>
             <h3 class="pf-item__title">To-Do list web-app</h3>
             <p class="pf-item__desc">A project application made for web-backend.
@@ -161,11 +166,14 @@
 
     <div class="pf-item">
         <div class="pf-item__content">
-            <a href="assets/images/gallery/snake.png" data-lightbox="portfolio-gallery">
+            <a href="assets/images/gallery/snake.png" data-title="Retro snake game made in Visual Studio Console" data-lightbox="csharp-games">
+                <a href="assets/images/gallery/unity3.png" data-title="Sandbox action-adventure rpg made in Unity" data-lightbox="csharp-games">
+                    <a href="assets/images/gallery/unity2.png" data-title="Sandbox action-adventure rpg made in Unity" data-lightbox="csharp-games">
+                        <a href="assets/images/gallery/unity1.png" data-title="Sandbox action-adventure rpg made in Unity" data-lightbox="csharp-games">
                 <img class="pf-item__thumb" src="https://unsplash.it/400?image=96" alt="">
-            </a>
-            <h3 class="pf-item__title">Retro arcade game</h3>
-            <p class="pf-item__desc">Console application made in C#</p>
+                        </a></a></a></a>
+            <h3 class="pf-item__title">Csharp games</h3>
+            <p class="pf-item__desc">Gaming related projects made in C#</p>
         </div>
     </div>
 
